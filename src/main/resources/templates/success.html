@@ -1,0 +1,26 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Success</title>
+    <style>
+        .msg {
+            margin: 120px auto;
+            width: 400px;
+            text-align: center;
+            background: #e6ffed;
+            padding: 25px;
+            border-radius: 12px;
+            color: #155724;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="msg">
+    <p th:text="${successMsg}"></p>
+    <a href="/pending-accounts">Back to Dashboard</a>
+</div>
+
+</body>
+</html>

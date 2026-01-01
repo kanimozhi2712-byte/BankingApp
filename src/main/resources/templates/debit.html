@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Debit Amount</title>
+
+<link rel="stylesheet"
+ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:linear-gradient(135deg,#7f1d1d,#450a0a);
+}
+
+/* CARD */
+.debit-card{
+    width:380px;
+    background:#fff;
+    border-radius:18px;
+    padding:30px;
+    box-shadow:0 20px 40px rgba(0,0,0,0.3);
+    animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+    0%{transform:translateY(0)}
+    50%{transform:translateY(-8px)}
+    100%{transform:translateY(0)}
+}
+
+.debit-card h2{
+    text-align:center;
+    margin-bottom:25px;
+    color:#991b1b;
+}
+
+.debit-card h2 i{
+    margin-right:8px;
+}
+
+/* FORM */
+.form-group{
+    margin-bottom:18px;
+}
+
+.form-group label{
+    display:block;
+    font-size:13px;
+    margin-bottom:6px;
+    color:#475569;
+}
+
+.input-wrapper{
+    position:relative;
+}
+
+.input-wrapper i{
+    position:absolute;
+    top:50%;
+    left:14px;
+    transform:translateY(-50%);
+    color:#991b1b;
+}
+
+.input-wrapper input{
+    width:100%;
+    padding:12px 12px 12px 42px;
+    border-radius:10px;
+    border:1.5px solid #fecaca;
+    font-size:14px;
+    outline:none;
+}
+
+.input-wrapper input:focus{
+    border-color:#dc2626;
+    box-shadow:0 0 0 3px rgba(220,38,38,0.25);
+}
+
+/* BUTTON */
+button{
+    width:100%;
+    padding:13px;
+    border:none;
+    border-radius:25px;
+    background:linear-gradient(90deg,#dc2626,#991b1b);
+    color:white;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+}
+
+button:hover{
+    box-shadow:0 12px 25px rgba(220,38,38,0.5);
+}
+
+    .navbar{
+            background:linear-gradient(90deg,#004e92,#000428);
+            color:white;
+            padding:16px 40px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
+        .back-btn{
+            color:white;
+            text-decoration:none;
+            font-weight:600;
+        }
+
+        .back-btn:hover{
+            color:#ffdede;
+        }
+
+    .data{
+    display: flex;
+    justify-content: center;
+    margin: 50px;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="navbar">
+    <h2><i class="fa-solid fa-building-columns"></i> MyBank</h2>
+    <a href="/transaction" class="back-btn">
+        <i class="fa-solid fa-arrow-left"></i> Back
+    </a>
+</div>
+<div class="data">
+
+<div class="debit-card">
+    <h2><i class="fa-solid fa-circle-minus"></i> Debit Amount</h2>
+
+    <form action="/debitamt" method="get">
+
+        <div class="form-group">
+            <label>Account Number</label>
+            <div class="input-wrapper">
+                <i class="fa-solid fa-wallet"></i>
+                <input type="text" name="accno" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Amount</label>
+            <div class="input-wrapper">
+                <i class="fa-solid fa-indian-rupee-sign"></i>
+                <input type="number" name="amt" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Description</label>
+            <div class="input-wrapper">
+                <i class="fa-solid fa-note-sticky"></i>
+                <input type="text" name="description"
+                       placeholder="ATM Withdrawal / Purchase">
+            </div>
+        </div>
+
+        <button type="submit">
+            <i class="fa-solid fa-arrow-down"></i> Debit Money
+        </button>
+
+    </form>
+</div>
+</div>
+</body>
+</html>

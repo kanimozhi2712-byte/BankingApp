@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Loan Approval | Manager</title>
+    <style>
+        body{
+            background:#f1f5f9;
+            padding:40px;
+            font-family:"Segoe UI",sans-serif;
+        }
+
+        h2{
+            margin-bottom:20px;
+            color:#0f172a;
+        }
+
+        .card{
+            background:white;
+            padding:25px;
+            border-radius:14px;
+            box-shadow:0 12px 30px rgba(0,0,0,0.08);
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+        }
+
+        thead{
+            background:#1e3a8a;
+            color:white;
+        }
+
+        th,td{
+            padding:14px;
+            font-size:14px;
+        }
+
+        tr:hover{
+            background:#f8fafc;
+        }
+
+        .status{
+            padding:6px 14px;
+            border-radius:20px;
+            font-size:12px;
+            font-weight:600;
+        }
+
+        .pending{ background:#fef3c7; color:#92400e; }
+        .approved{ background:#dcfce7; color:#166534; }
+        .rejected{ background:#fee2e2; color:#991b1b; }
+
+        .btn{
+            padding:8px 16px;
+            border-radius:20px;
+            border:none;
+            cursor:pointer;
+            font-size:13px;
+            margin-right:6px;
+        }
+
+        .approve{
+            background:#1e40af;
+            color:white;
+        }
+
+        .reject{
+            background:#dc2626;
+            color:white;
+        }
+
+        .done{
+            font-weight:600;
+            font-size:13px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>🏦 Loan Approval Dashboard</h2>
+
+<div class="card">
+    <table>
+        <thead>
+        <tr>
+            <th>Customer</th>
+            <th>Amount</th>
+            <th>Tenure</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="loan : ${loans}">
+            <td th:text="${loan.customer.name}"></td>
+            <td th:text="'₹ ' + ${loan.loanAmount}"></td>
+            <td th:text="${loan.tenureMonths} + ' Months'"></td>
+
+            <td>
+                <span th:if="${loan.status.name()=='PENDING'}" class="status pending">PENDING</span>
+                <span th:if="${loan.status.name()=='APPROVED'}" class="status approved">APPROVED</span>
+                <span th:if="${loan.status.name()=='REJECTED'}" class="status rejected">REJECTED</span>
+            </td>
+
+            <td>
+                <div th:if="${loan.status.name()=='PENDING'}">
+                    <form th:action="@{/approve-loan}" method="post" style="display:inline">
+                        <input type="hidden" name="loanId" th:value="${loan.id}">
+                        <button class="btn approve">Approve</button>
+                    </form>
+
+                    <form th:action="@{/reject-loan/{id}(id=${loan.id})}" method="get" style="display:inline">
+                        <input type="hidden" name="loanId" th:value="${loan.id}">
+                        <button class="btn reject">Reject</button>
+                    </form>
+                </div>
+
+                <span th:if="${loan.status.name()!='PENDING'}" class="done">
+            ✔ Action Completed
+        </span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

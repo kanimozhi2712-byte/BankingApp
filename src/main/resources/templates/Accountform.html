@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Bank Account</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(120deg, #004e92, #000428);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .form-container {
+            background: white;
+            width: 420px;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .form-header i {
+            font-size: 45px;
+            color: #004e92;
+        }
+
+        .form-header h2 {
+            margin-top: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .input-box {
+            position: relative;
+        }
+
+        .input-box i {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #004e92;
+        }
+
+        .input-box input,
+        .input-box select {
+            width: 100%;
+            padding: 12px 12px 12px 40px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            outline: none;
+        }
+
+        .input-box input:focus,
+        .input-box select:focus {
+            border-color: #004e92;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(90deg, #004e92, #000428);
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            opacity: 0.9;
+        }
+
+        .back-link {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .back-link a {
+            color: #004e92;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+
+    <div class="form-header">
+        <i class="fa-solid fa-building-columns"></i>
+        <h2>Create Account</h2>
+        <p>Account request will be sent for approval</p>
+    </div>
+
+    <!-- IMPORTANT: use POST in real projects -->
+    <form action="/customer/account" method="get">
+
+
+        <!-- Customer ID -->
+        <div class="form-group">
+            <label>Customer ID</label>
+            <div class="input-box">
+                <i class="fa-solid fa-id-card"></i>
+                <input type="number" name="customer_id" placeholder="Customer ID" required>
+            </div>
+        </div>
+
+        <!-- Bank Name -->
+        <div class="form-group">
+            <label>Bank Name</label>
+            <div class="input-box">
+                <i class="fa-solid fa-building"></i>
+                <input type="text" name="Bank_name" placeholder="Enter bank name" required>
+            </div>
+        </div>
+
+        <!-- Balance -->
+        <div class="form-group">
+            <label>Initial Balance</label>
+            <div class="input-box">
+                <i class="fa-solid fa-indian-rupee-sign"></i>
+                <input type="number" name="balance" placeholder="Enter amount" required>
+            </div>
+        </div>
+
+
+        <!-- Account Type -->
+        <div class="form-group">
+            <label>Account Type</label>
+            <div class="input-box">
+                <i class="fa-solid fa-wallet"></i>
+                <select name="account_type" required>
+                    <option value="">Select Account Type</option>
+                    <option value="SAVINGS">Savings</option>
+                    <option value="CURRENT">Current</option>
+                </select>
+            </div>
+        </div>
+
+
+
+        <button class="submit-btn">
+            <i class="fa-solid fa-paper-plane"></i> Submit for Approval
+        </button>
+
+    </form>
+
+    <div class="back-link">
+        <a href="/customer">← Back to Dashboard</a>
+    </div>
+
+</div>
+
+</body>
+</html>

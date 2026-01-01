@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Transactions | MyBank</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Segoe UI', sans-serif;
+        }
+
+        body{
+            background:#f4f6f9;
+        }
+
+        /* Navbar */
+        .navbar{
+            background:linear-gradient(90deg,#004e92,#000428);
+            color:white;
+            padding:16px 40px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
+
+        .navbar h2{
+            font-size:22px;
+        }
+
+        .back-btn{
+            color:white;
+            text-decoration:none;
+            font-weight:600;
+        }
+
+        .back-btn:hover{
+            color:#ffdede;
+        }
+
+        /* Page */
+        .container{
+            padding:50px;
+        }
+
+        .title{
+            font-size:28px;
+            margin-bottom:8px;
+        }
+
+        .subtitle{
+            color:gray;
+            margin-bottom:40px;
+        }
+
+        /* Cards */
+        .card-wrapper{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+            gap:30px;
+        }
+
+        .card{
+            background:white;
+            border-radius:18px;
+            padding:35px 25px;
+            text-align:center;
+            cursor:pointer;
+            box-shadow:0 12px 25px rgba(0,0,0,0.08);
+            transition:0.4s ease;
+            position:relative;
+            overflow:hidden;
+        }
+
+        .card::before{
+            content:"";
+            position:absolute;
+            top:0;
+            left:-100%;
+            width:100%;
+            height:100%;
+            background:rgba(255,255,255,0.2);
+            transition:0.4s;
+        }
+
+        .card:hover::before{
+            left:0;
+        }
+
+        .card:hover{
+            transform:translateY(-12px) scale(1.02);
+            box-shadow:0 20px 35px rgba(0,0,0,0.15);
+        }
+
+        .card i{
+            font-size:46px;
+            margin-bottom:15px;
+        }
+
+        .card h3{
+            margin-bottom:10px;
+            font-size:20px;
+        }
+
+        .card p{
+            font-size:14px;
+            opacity:0.9;
+        }
+
+        /* Specific Colors */
+        .credit{
+            background:linear-gradient(135deg,#dcfce7,#86efac);
+            color:#065f46;
+        }
+
+        .credit i{
+            color:#047857;
+        }
+
+        .debit{
+            background:linear-gradient(135deg,#fee2e2,#fecaca);
+            color:#7f1d1d;
+        }
+
+        .debit i{
+            color:#b91c1c;
+        }
+
+        .transfer{
+            background:linear-gradient(135deg,#e0e7ff,#c7d2fe);
+            color:#1e3a8a;
+        }
+
+        .transfer i{
+            color:#1d4ed8;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+    <h2><i class="fa-solid fa-building-columns"></i> MyBank</h2>
+    <a href="/customer" class="back-btn">
+        <i class="fa-solid fa-arrow-left"></i> Back
+    </a>
+</div>
+
+<!-- Content -->
+<div class="container">
+
+    <h1 class="title">Transactions</h1>
+    <p class="subtitle">Choose your transaction type</p>
+
+    <div class="card-wrapper">
+
+        <!-- CREDIT -->
+        <div class="card credit" onclick="location.href='/Upicredit'">
+            <i class="fa-solid fa-arrow-down"></i>
+            <h3>Credit</h3>
+            <p>Add money to your account</p>
+        </div>
+
+        <!-- DEBIT -->
+        <div class="card debit" onclick="location.href='/Upidebit'">
+            <i class="fa-solid fa-arrow-up"></i>
+            <h3>Debit</h3>
+            <p>Withdraw money from your account</p>
+        </div>
+
+        <!-- TRANSFER -->
+        <div class="card transfer" onclick="location.href='/Upitransfer'">
+            <i class="fa-solid fa-right-left"></i>
+            <h3>Transfer</h3>
+            <p>Send money to another account</p>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+    <style>
+    .table-container {
+    margin-top: 50px;
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0px 10px 25px rgba(0,0,0,0.1);
+    }
+
+    .table-container h2 {
+    margin-bottom: 20px;
+    color: #004e92;
+    }
+
+    .styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+    }
+
+    .styled-table thead {
+    background: linear-gradient(90deg, #004e92, #000428);
+    color: white;
+    }
+
+    .styled-table th,
+    .styled-table td {
+    padding: 14px 16px;
+    text-align: center;
+    }
+
+    .styled-table tbody tr {
+    border-bottom: 1px solid #eee;
+    }
+
+    .styled-table tbody tr:hover {
+    background-color: #f4f8ff;
+    }
+
+    /* Status badge */
+    .status {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    }
+
+    .status.pending {
+    background: #fff3cd;
+    color: #856404;
+    }
+
+    /* Buttons */
+    .approve {
+    background: #28a745;
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-right: 5px;
+    }
+
+    .reject {
+    background: #dc3545;
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    }
+
+    .approve:hover {
+    background: #218838;
+    }
+
+    .reject:hover {
+    background: #c82333;
+    }
+</style>
+</head>
+<body>
+
+
+
+
+<div class="table-container">
+    <h2>Pending Account Approvals</h2>
+
+    <table class="styled-table">
+        <thead>
+        <tr>
+            <th>Customer ID</th>
+            <th>Initial Balance</th>
+            <th>Account Type</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="acc : ${accounts}">
+
+            <!-- Customer ID -->
+            <td th:text="${acc.customer.id}"></td>
+
+            <!-- Initial Balance -->
+            <td th:text="'₹' + ${acc.balance}"></td>
+
+            <!-- Account Type -->
+            <td th:text="${acc.acctype}"></td>
+
+            <!-- Status -->
+            <td>
+        <span class="status pending"
+              th:text="${acc.status}">
+        </span>
+            </td>
+
+            <!-- Actions -->
+            <td>
+                <a th:href="@{/approve-form/{id}(id=${acc.id})}">
+                    <button class="approve">Approve</button>
+                </a>
+                <a th:href="@{/reject/{id}(id=${acc.id})}">
+                    <button class="reject">Reject</button>
+                </a>
+            </td>
+
+        </tr>
+        </tbody>
+
+
+    </table>
+</div>
+
+
+</body>
+</html>

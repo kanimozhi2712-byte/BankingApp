@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bank Login</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body{
+    height:100vh;
+    background:#2346b8;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+}
+
+/* BACKGROUND SHAPES */
+body::before{
+    content:"";
+    position:absolute;
+    width:400px;
+    height:400px;
+    background:#2f5be3;
+    border-radius:50%;
+}
+
+body::after {
+    content: "";
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: #2f5be3;
+    border-radius: 50%;
+}
+
+body::before{
+    top:-100px;
+    left:-100px;
+}
+
+body::after{
+    bottom:-150px;
+    right:-150px;
+}
+
+/* LOGIN CONTAINER */
+.container{
+    position:relative;
+    z-index:2;
+    width:420px;
+    text-align:center;
+    color:white;
+}
+
+.container h1{
+    font-size:32px;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    font-size:14px;
+    opacity:0.85;
+    margin-bottom:35px;
+}
+
+/* INPUT */
+.input-box{
+    position:relative;
+    margin-bottom:20px;
+}
+
+.input-box input{
+    width:100%;
+    padding:14px 14px 14px 50px;
+    border-radius:30px;
+    border:1.5px solid rgba(255,255,255,0.6);
+    background:transparent;
+    color:white;
+    font-size:14px;
+    outline:none;
+}
+
+.input-box input::placeholder{
+    color:rgba(255,255,255,0.8);
+}
+
+/* ICONS */
+.icon{
+    position:absolute;
+    left:18px;
+    top:50%;
+    transform:translateY(-50%);
+    width:20px;
+    height:20px;
+    opacity:0.95;
+}
+
+/* USER ICON */
+.user-icon{
+    border:2px solid #8FE3FF;
+    border-radius:50%;
+}
+
+.user-icon::after{
+    content:"";
+    position:absolute;
+    width:12px;
+    height:6px;
+    border:2px solid #8FE3FF;
+    border-top:none;
+    border-radius:0 0 10px 10px;
+    bottom:-8px;
+    left:2px;
+}
+
+/* LOCK ICON */
+.lock-icon{
+    border:2px solid #8FE3FF;
+    border-radius:4px;
+}
+
+.lock-icon::before{
+    content:"";
+    position:absolute;
+    width:12px;
+    height:8px;
+    border:2px solid #8FE3FF;
+    border-bottom:none;
+    border-radius:10px 10px 0 0;
+    top:-10px;
+    left:2px;
+}
+
+/* FORGOT */
+.forgot{
+    text-align:right;
+    font-size:12px;
+    margin-bottom:25px;
+}
+
+.forgot a{
+    color:white;
+    text-decoration:none;
+    opacity:0.9;
+}
+.login-btn{
+    width:100%;
+    padding:14px;
+    border-radius:30px;
+    background:transparent;
+    border:2px solid #22c55e;
+    color:#22c55e;
+    font-size:16px;
+    cursor:pointer;
+    margin-bottom:20px;
+}
+
+/* GOOGLE BUTTON */
+.google-btn{
+    width:100%;
+    padding:14px;
+    border-radius:30px;
+    background:#111;
+    color:white;
+    border:none;
+    font-size:14px;
+    cursor:pointer;
+}
+
+/* REGISTER */
+.register{
+    margin-top:20px;
+    font-size:13px;
+}
+
+.register a{
+    color:#8FE3FF;
+    text-decoration:none;
+}
+
+/* BANK LOGO */
+.bank-logo{
+    font-size:42px;
+    margin-bottom:10px;
+}
+
+/* FEATURES */
+.features{
+    display:flex;
+    justify-content:space-between;
+    margin:20px 0 25px;
+}
+
+.feature{
+    width:30%;
+    padding:10px 0;
+    border:1px solid rgba(255,255,255,0.5);
+    border-radius:12px;
+    font-size:13px;
+    color:white;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:5px;
+    background:rgba(255,255,255,0.05);
+}
+
+.feature span{
+    font-size:12px;
+    opacity:0.9;
+}
+
+/* TRUST LINE */
+.trust{
+    margin-top:15px;
+    font-size:12px;
+    opacity:0.9;
+}
+    </style>
+</head>
+<body>
+<form action="/login" method="post">
+<div class="container">
+
+    <!-- BANK LOGO -->
+    <div class="bank-logo">
+        🏦
+    </div>
+
+    <h1>SecureBank Login</h1>
+    <p class="subtitle">Access your accounts, cards & loans securely</p>
+
+    <!-- INPUTS -->
+    <div class="input-box">
+        <span class="icon user-icon"></span>
+        <input type="text" placeholder="username  or Email" name="username">
+    </div>
+
+    <div class="input-box">
+        <span class="icon lock-icon"></span>
+        <input type="password" placeholder="Password" name="password">
+    </div>
+
+    <!-- BANKING FEATURES -->
+    <div class="features">
+        <div class="feature">
+            💳 <span>Cards</span>
+        </div>
+        <div class="feature">
+            💰 <span>Loans</span>
+        </div>
+        <div class="feature">
+            🧾 <span>Accounts</span>
+        </div>
+    </div>
+
+    <!-- LOGIN BUTTON -->
+    <button class="google-btn" type="submit">
+        🔐 Login Securely
+    </button>
+
+    <!-- TRUST LINE -->
+    <p class="trust">
+        🔒 100% Secure Banking Platform
+    </p>
+
+</div>
+</form>
+</body>
+
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Create UPI | MyBank</title>
+
+<link rel="stylesheet"
+ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#004e92,#000428);
+}
+
+.card{
+    width:400px;
+    background:white;
+    border-radius:22px;
+    padding:35px;
+    box-shadow:0 25px 45px rgba(0,0,0,0.3);
+    animation:slideUp 0.7s ease;
+}
+
+@keyframes slideUp{
+    from{opacity:0;transform:translateY(40px)}
+    to{opacity:1;transform:translateY(0)}
+}
+
+.card h2{
+    text-align:center;
+    color:#1e3a8a;
+    margin-bottom:12px;
+}
+
+.card p{
+    text-align:center;
+    font-size:14px;
+    color:#64748b;
+    margin-bottom:25px;
+}
+
+.input-group{
+    position:relative;
+    margin-bottom:20px;
+}
+
+.input-group i{
+    position:absolute;
+    left:16px;
+    top:50%;
+    transform:translateY(-50%);
+    color:#2563eb;
+}
+
+.input-group input{
+    width:100%;
+    padding:14px 14px 14px 46px;
+    border-radius:14px;
+    border:1.5px solid #c7d2fe;
+    font-size:14px;
+    outline:none;
+}
+
+.input-group input:focus{
+    border-color:#2563eb;
+    box-shadow:0 0 0 3px rgba(37,99,235,0.25);
+}
+
+button{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:30px;
+    background:linear-gradient(90deg,#2563eb,#1e40af);
+    color:white;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:translateY(-2px);
+    box-shadow:0 14px 30px rgba(37,99,235,0.4);
+}
+
+.secure{
+    margin-top:15px;
+    text-align:center;
+    font-size:12px;
+    color:#16a34a;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <h2><i class="fa-solid fa-qrcode"></i> Create UPI ID</h2>
+    <p>UPI is required for instant transactions</p>
+
+    <form action="/upiadd" method="get">
+
+        <div class="input-group">
+            <i class="fa-solid fa-user"></i>
+            <input type="text"
+                   name="upi_number"
+                   placeholder="Enter UPI ID (name@mybank)"
+                   required>
+        </div>
+
+        <button type="submit">
+            <i class="fa-solid fa-check-circle"></i> Generate UPI
+        </button>
+
+    </form>
+
+    <div class="secure">
+        🔒 RBI Verified • Bank Secure
+    </div>
+
+</div>
+
+</body>
+</html>

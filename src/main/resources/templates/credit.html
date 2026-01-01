@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Credit Amount</title>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* (Your same CSS – unchanged for clarity) */
+        *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
+        body{min-height:100vh;background:linear-gradient(135deg,#004e92,#000428);}
+        .credit-card{width:380px;background:#fff;border-radius:18px;padding:30px;
+        box-shadow:0 20px 40px rgba(0,0,0,0.25);}
+        .form-group{margin-bottom:18px;}
+        label{font-size:13px;color:#475569;}
+        .input-wrapper{position:relative;}
+        .input-wrapper i{position:absolute;left:14px;top:14px;color:#64748b;}
+        input{width:100%;padding:12px 12px 12px 42px;border-radius:10px;border:1.5px solid #cbd5f5;}
+        button{width:100%;padding:13px;border:none;border-radius:25px;
+        background:linear-gradient(90deg,#2563eb,#1e40af);color:white;font-weight:600;}
+        .navbar{background:linear-gradient(90deg,#004e92,#000428);color:white;
+        padding:16px 40px;display:flex;justify-content:space-between;}
+        .data{display:flex;justify-content:center;margin-top:60px;}
+    </style>
+</head>
+
+<body>
+
+<div class="navbar">
+    <h2><i class="fa-solid fa-building-columns"></i> MyBank</h2>
+    <a href="/transaction" style="color:white;text-decoration:none">
+        <i class="fa-solid fa-arrow-left"></i> Back
+    </a>
+</div>
+
+<div class="data">
+    <div class="credit-card">
+
+        <h2><i class="fa-solid fa-circle-plus"></i> Credit Amount</h2>
+
+        <!-- ================== UPI TRANSACTION ================== -->
+        <form th:if="${txnType == 'UPI'}"
+              th:action="@{/upi/credit}"
+              method="post">
+
+            <div class="form-group">
+                <label>UPI ID</label>
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-mobile-screen"></i>
+                    <input type="text" name="upiId" placeholder="example@upi" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Amount</label>
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-indian-rupee-sign"></i>
+                    <input type="number" name="amt" required>
+                </div>
+            </div>
+
+            <button type="submit">
+                Credit via UPI
+            </button>
+        </form>
+
+        <!-- ================== BANK TRANSACTION ================== -->
+        <form th:unless="${txnType == 'UPI'}"
+              th:action="@{/creditamt}"
+              method="get">
+
+            <div class="form-group">
+                <label>Account Number</label>
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-wallet"></i>
+                    <input type="text" name="accno" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Amount</label>
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-indian-rupee-sign"></i>
+                    <input type="number" name="amt" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Description</label>
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-pen"></i>
+                    <input type="text" name="message"
+                           placeholder="Cash Deposit / Transfer">
+                </div>
+            </div>
+
+            <button type="submit">
+                Credit via Bank
+            </button>
+        </form>
+
+    </div>
+</div>
+
+</body>
+</html>

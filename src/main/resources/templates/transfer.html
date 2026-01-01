@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Transfer Money</title>
+
+<link rel="stylesheet"
+ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:linear-gradient(135deg,#0f766e,#042f2e);
+}
+
+/* CARD */
+.transfer-card{
+    width:420px;
+    background:#fff;
+    border-radius:18px;
+    padding:30px;
+    box-shadow:0 20px 40px rgba(0,0,0,0.3);
+    animation:slideUp 0.6s ease;
+}
+
+@keyframes slideUp{
+    from{opacity:0;transform:translateY(40px)}
+    to{opacity:1;transform:translateY(0)}
+}
+
+.transfer-card h2{
+    text-align:center;
+    margin-bottom:25px;
+    color:#0f766e;
+}
+
+.form-group{
+    margin-bottom:18px;
+}
+
+.form-group label{
+    display:block;
+    font-size:13px;
+    margin-bottom:6px;
+    color:#475569;
+}
+
+.input-wrapper{
+    position:relative;
+}
+
+.input-wrapper i{
+    position:absolute;
+    top:50%;
+    left:14px;
+    transform:translateY(-50%);
+    color:#0f766e;
+}
+
+.input-wrapper input{
+    width:100%;
+    padding:12px 12px 12px 42px;
+    border-radius:10px;
+    border:1.5px solid #99f6e4;
+    font-size:14px;
+    outline:none;
+}
+
+.input-wrapper input:focus{
+    border-color:#14b8a6;
+    box-shadow:0 0 0 3px rgba(20,184,166,0.25);
+}
+
+/* BUTTON */
+button{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:25px;
+    background:linear-gradient(90deg,#14b8a6,#0f766e);
+    color:white;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+}
+
+button:hover{
+    box-shadow:0 12px 25px rgba(20,184,166,0.5);
+}
+
+    .navbar{
+            background:linear-gradient(90deg,#004e92,#000428);
+            color:white;
+            padding:16px 40px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
+
+        .navbar h2{
+            font-size:22px;
+        }
+
+        .back-btn{
+            color:white;
+            text-decoration:none;
+            font-weight:600;
+        }
+
+        .back-btn:hover{
+            color:#ffdede;
+        }
+    .data{
+    display: flex;
+    justify-content: center;
+    margin: 50px;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="navbar">
+    <h2><i class="fa-solid fa-building-columns"></i> MyBank</h2>
+    <a href="/transaction" class="back-btn">
+        <i class="fa-solid fa-arrow-left"></i> Back
+    </a>
+</div>
+<div class="data">
+<div class="transfer-card">
+
+    <h2><i class="fa-solid fa-money-bill-transfer"></i> Transfer Money</h2>
+
+    <form action="/transferamt" method="get">
+
+        <div class="form-group">
+            <label>From Account</label>
+            <div class="input-wrapper">
+                <i class="fa-solid fa-wallet"></i>
+                <input type="text" name="accno" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>To Account</label>
+            <div class="input-wrapper">
+                <i class="fa-solid fa-building-columns"></i>
+                <input type="text" name="accno1" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Amount</label>
+            <div class="input-wrapper">
+                <i class="fa-solid fa-indian-rupee-sign"></i>
+                <input type="number" name="amt" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Remarks</label>
+            <div class="input-wrapper">
+                <i class="fa-solid fa-pen"></i>
+                <input type="text" name="description"
+                       placeholder="IMPS / NEFT / Internal Transfer">
+            </div>
+        </div>
+
+        <button type="submit">
+            <i class="fa-solid fa-paper-plane"></i> Transfer Now
+        </button>
+
+    </form>
+
+</div>
+</div>
+</body>
+</html>

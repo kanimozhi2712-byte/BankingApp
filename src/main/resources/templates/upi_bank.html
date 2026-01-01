@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Debit Transaction | MyBank</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Segoe UI', sans-serif;
+        }
+
+        body{
+            background:#f4f6f9;
+        }
+
+        /* Navbar */
+        .navbar{
+            background:linear-gradient(90deg,#004e92,#000428);
+            color:white;
+            padding:16px 40px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
+
+        .navbar h2{
+            font-size:22px;
+        }
+
+        .back-btn{
+            color:white;
+            text-decoration:none;
+            font-weight:600;
+        }
+
+        .back-btn:hover{
+            color:#ffdede;
+        }
+
+        /* Page */
+        .container{
+            padding:50px;
+            text-align:center;
+        }
+
+        .title{
+            font-size:28px;
+            margin-bottom:8px;
+            color:#0f172a;
+        }
+
+        .subtitle{
+            color:gray;
+            margin-bottom:45px;
+            font-size:15px;
+        }
+
+        /* Cards */
+        .card-wrapper{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            gap:40px;
+            flex-wrap:wrap;
+        }
+
+        .card{
+            width:320px;
+            background:white;
+            border-radius:20px;
+            padding:35px 25px;
+            text-align:center;
+            cursor:pointer;
+            box-shadow:0 12px 25px rgba(0,0,0,0.08);
+            transition:0.4s ease;
+            position:relative;
+        }
+
+        .card:hover{
+            transform:translateY(-12px);
+            box-shadow:0 22px 40px rgba(0,0,0,0.15);
+        }
+
+        .card i{
+            font-size:48px;
+            margin-bottom:18px;
+        }
+
+        .card h3{
+            margin-bottom:10px;
+            font-size:21px;
+        }
+
+        .card p{
+            font-size:14px;
+            opacity:0.85;
+            line-height:1.5;
+        }
+
+        /* Divider */
+        .divider{
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            gap:10px;
+            color:#64748b;
+            font-weight:600;
+        }
+
+        .divider span{
+            background:#f4f6f9;
+            padding:6px 14px;
+            border-radius:20px;
+            border:1px solid #cbd5e1;
+        }
+
+        .divider-line{
+            width:1px;
+            height:120px;
+            background:#cbd5e1;
+        }
+
+        /* UPI */
+        .upi{
+            background:linear-gradient(135deg,#dcfce7,#86efac);
+            color:#065f46;
+        }
+
+        .upi i{
+            color:#047857;
+        }
+
+        /* BANK */
+        .bank{
+            background:linear-gradient(135deg,#e0e7ff,#c7d2fe);
+            color:#1e3a8a;
+        }
+
+        .bank i{
+            color:#1d4ed8;
+        }
+
+        @media(max-width:900px){
+            .divider{
+                flex-direction:row;
+            }
+            .divider-line{
+                width:120px;
+                height:1px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+    <h2><i class="fa-solid fa-building-columns"></i> MyBank</h2>
+    <a href="/transaction" class="back-btn">
+        <i class="fa-solid fa-arrow-left"></i> Back
+    </a>
+</div>
+
+<!-- Content -->
+<div class="container">
+
+    <h1 class="title">Debit Transaction</h1>
+    <p class="subtitle">
+        Choose how you want to debit money from your account
+    </p>
+
+    <div class="card-wrapper">
+
+        <!-- UPI TRANSACTION -->
+        <div class="card upi" onclick="location.href='/upicreate'">
+            <i class="fa-solid fa-mobile-screen-button"></i>
+            <h3>UPI Transaction</h3>
+            <p>
+                Debit money instantly using UPI ID or UPI number.
+                <br>Fast • Secure • Real-time
+            </p>
+        </div>
+
+        <!-- DIVIDER -->
+        <div class="divider">
+            <div class="divider-line"></div>
+            <span>OR</span>
+            <div class="divider-line"></div>
+        </div>
+
+        <!-- BANK TRANSACTION -->
+        <div class="card bank" onclick="location.href='/transaction'">
+            <i class="fa-solid fa-building-columns"></i>
+            <h3>Bank Transaction</h3>
+            <p>
+                Debit using Account Number & IFSC code.
+                <br>Safe • Verified • Bank Transfer
+            </p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

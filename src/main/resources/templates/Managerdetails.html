@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>My Details</title>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        body {
+            background: #f4f6f9;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .container {
+            max-width: 600px;
+            background: white;
+            margin: 60px auto;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #004e92;
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 18px;
+        }
+
+        .label {
+            font-weight: bold;
+            color: #555;
+        }
+
+        .value {
+            color: #333;
+        }
+
+        .back-btn {
+            display: block;
+            margin-top: 30px;
+            text-align: center;
+            text-decoration: none;
+            padding: 10px;
+            background: #004e92;
+            color: white;
+            border-radius: 8px;
+        }
+
+        .back-btn:hover {
+            background: #003366;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2><i class="fa-solid fa-id-badge"></i> Manager Profile</h2>
+
+    <div class="row">
+        <span class="label">Name:</span>
+        <span class="value" th:text="${manager.name}"></span>
+    </div>
+
+    <div class="row">
+        <span class="label">Email:</span>
+        <span class="value" th:text="${manager.email}"></span>
+    </div>
+
+    <div class="row">
+        <span class="label">Phone:</span>
+        <span class="value" th:text="${manager.phone}"></span>
+    </div>
+
+    <div class="row">
+        <span class="label">Branch:</span>
+        <span class="value" th:text="${manager.branch}"></span>
+    </div>
+
+    <div class="row">
+        <span class="label">Role:</span>
+        <span class="value" th:text="${manager.role}"></span>
+    </div>
+
+    <a href="/manager" class="back-btn">
+        <i class="fa-solid fa-arrow-left"></i> Back to Dashboard
+    </a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Approve Account</title>
+    <style>
+        .form-box {
+            width: 400px;
+            margin: 80px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        button {
+            margin-top: 15px;
+            width: 100%;
+            padding: 10px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="form-box">
+    <h3>Approve Account</h3>
+
+    <form th:action="@{/approve-submit}" method="post">
+
+        <input type="hidden" name="id" th:value="${account.id}" />
+
+        <label>Account Number</label>
+        <input type="text" name="accNo" th:value="${account.accNo}" required />
+
+        <label>IFSC Code</label>
+        <input type="text" name="ifsccode" th:value="${account.ifsccode}" required />
+
+        <button type="submit">Submit & Approve</button>
+    </form>
+</div>
+
+</body>
+</html>

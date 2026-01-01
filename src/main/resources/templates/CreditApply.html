@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Apply Credit Card</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+        }
+
+        .card-form {
+            width: 400px;
+            margin: 80px auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .card-form h2 {
+            text-align: center;
+            color: #004e92;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 15px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 25px;
+            padding: 12px;
+            background: #004e92;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #003366;
+        }
+
+        .note {
+            font-size: 13px;
+            margin-top: 10px;
+            color: #666;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card-form">
+
+    <h2>Apply Credit Card</h2>
+
+    <form th:action="@{/applies-credit-card}" method="post">
+
+        <!-- Customer ID -->
+        <label>Customer ID</label>
+        <input type="number" name="customerId" required>
+
+        <!-- Account Number -->
+        <label>Account Number</label>
+        <input type="text" name="accountNo" required>
+
+        <!-- Card Type -->
+        <label>Card Type</label>
+        <select name="cardType">
+            <option value="CREDIT">Credit Card</option>
+        </select>
+
+        <button type="submit">Apply</button>
+
+        <p class="note">
+            Your request will be sent to manager for approval
+        </p>
+
+    </form>
+
+</div>
+
+</body>
+</html>
+
